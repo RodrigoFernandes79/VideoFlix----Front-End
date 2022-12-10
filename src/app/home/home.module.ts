@@ -15,7 +15,8 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     HomeRoutingModule,
 		ButtonModule,
-		FormsModule
+		FormsModule,
+
 	],
 		exports: [
 			HomeComponent
