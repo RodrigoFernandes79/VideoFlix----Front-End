@@ -4,6 +4,7 @@ import {ButtonModule} from 'primeng-lts/button';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 
+
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 
@@ -15,11 +16,13 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     HomeRoutingModule,
 		ButtonModule,
-		FormsModule,
+		FormsModule
+
 
 	],
 		exports: [
 			HomeComponent
+
 		]
 
 })

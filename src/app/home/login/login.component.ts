@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 	senha = "";
 
   constructor(private autencicacaoService: AutenticacaoService,
-		private router: Router) { }
+		private router: Router,
+	) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
 	login(){
 	this.autencicacaoService.autenticar(this.email,this.senha)
 	.subscribe((resposta)=>{
-		console.log('Sucesso! '+resposta)
+		console.log(resposta)
 		this.router.navigate(['videos']);
 	},
 	(error)=>{
