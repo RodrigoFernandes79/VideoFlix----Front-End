@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ButtonModule} from 'primeng-lts/button';
-
+import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
+
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-		ButtonModule
+		ButtonModule,
+		FormsModule
 	],
 		exports: [
 			HomeComponent
