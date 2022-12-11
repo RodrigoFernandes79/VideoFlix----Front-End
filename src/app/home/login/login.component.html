@@ -8,6 +8,7 @@
             <input id="senha" placeholder="Senha" type="password" class="shadow-3 text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [(ngModel)]="senha" name="senha">
         </div>
         <div class="field mt-5">
+            <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
             <p-button type="submit" class="block font-bold text-center border-round cursor-pointer bg-primary shadow-3" label="Login" icon="pi pi-check"></p-button>
         </div>
     </form>
