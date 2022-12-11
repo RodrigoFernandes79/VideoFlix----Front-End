@@ -1,8 +1,8 @@
 import {MessageService} from 'primeng-lts/api';
-import {Message} from 'primeng-lts//api';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,18 +13,27 @@ import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
 })
 export class LoginComponent implements OnInit {
 
-	email = "";
-	senha = "";
+	formGroup:FormGroup
+
 
   constructor(private autencicacaoService: AutenticacaoService,
-		private router: Router, private messageService :MessageService
-	) { }
+		private router: Router, private messageService :MessageService,
+		private formBuilder: FormBuilder
+	) {
 
+	this.formGroup = this.formBuilder.group({
+		email:['',[Validators.required,Validators.email]],
+		senha:['',[Validators.required]],
+
+	})
+	}
   ngOnInit(): void {
   }
 
+
+
 	login(){
-	this.autencicacaoService.autenticar(this.email,this.senha)
+	this.autencicacaoService.autenticar(this.formGroup.value.email,this.formGroup.value.senha)
 	.subscribe(()=>{
 		this.router.navigate(['videos'])
 },

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ButtonModule} from 'primeng-lts/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import {ToastModule} from 'primeng-lts/toast';
 
@@ -17,10 +17,8 @@ import { LoginComponent } from './login/login.component';
     HomeRoutingModule,
 		ButtonModule,
 		FormsModule,
-		ToastModule
-
-
-
+		ToastModule,
+		ReactiveFormsModule
 
 	],
 		exports: [

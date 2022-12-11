@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng-lts/button';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { AppComponent } from './app.component';
 		MessageModule,
 		MessagesModule,
 		BrowserAnimationsModule,
-		ToastModule
+		ButtonModule,
+		FormsModule,
+		ToastModule,
+		ReactiveFormsModule
 
   ],
   providers:[],
