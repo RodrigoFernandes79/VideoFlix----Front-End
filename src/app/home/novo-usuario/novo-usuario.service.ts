@@ -13,4 +13,6 @@ export class NovoUsuarioService {
 	cadastrarNovoUsuario(novoUsuario: NovoUsuario){
 		return this.http.post('http://localhost:8080/usuarios',novoUsuario)
 	}
+
+
 }

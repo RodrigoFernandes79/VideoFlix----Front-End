@@ -46,6 +46,7 @@
             </div>
         </div>
         <div class="field">
+            <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
             <p-button type="submit" [disabled]="formGroup.invalid" class="block font-bold text-center border-round cursor-pointer bg-primary shadow-4" label="Cadastrar"></p-button>
         </div>
         <button pButton pRipple type="button" [routerLink]="['']" label="Faça login em vez disso" class="p-button-text"></button>

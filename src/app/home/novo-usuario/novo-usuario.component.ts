@@ -3,6 +3,8 @@ import { NovoUsuarioService } from './novo-usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { minusculoValidator } from './minusculo-validator';
+import {Message} from 'primeng-lts//api';
+import {MessageService} from 'primeng-lts/api';
 
 
 
@@ -10,6 +12,7 @@ import { minusculoValidator } from './minusculo-validator';
   selector: 'app-novo-usuario',
   templateUrl: './novo-usuario.component.html',
   styleUrls: ['./novo-usuario.component.scss'],
+	providers: [MessageService]
 
 })
 export class NovoUsuarioComponent implements OnInit {
@@ -20,7 +23,7 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
 		 private novoUsuarioService: NovoUsuarioService,
-		 private router: Router) {
+		 private router: Router, private messageService: MessageService) {
 
 			this.formGroup = this.formBuilder.group({
 
@@ -42,7 +45,8 @@ export class NovoUsuarioComponent implements OnInit {
 
 		},
 		errors=>{
-			console.log(errors)
+			this.messageService.add({severity:'error', summary:'Erro!', detail:errors.error.message})
+			console.log(errors.error.message)
 		})
 }
 }
