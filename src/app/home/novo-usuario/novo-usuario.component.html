@@ -20,6 +20,9 @@
         <p class="danger" *ngIf="formGroup.controls.email.errors?.email">
             O Campo E-MAIL deve ser válido.
         </p>
+        <p class="danger" *ngIf="formGroup.controls.email.errors?.minusculo">
+            O campo E- MAIL deve ter letras minúsculas.
+        </p>
         <div class="field mt-5">
             <input id="senha" placeHolder="Senha" type="text" formControlName="senha" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full shadow-2">
         </div>
@@ -32,7 +35,7 @@
         <div class="field mt-5">
             <h3>Tipo de Conta</h3>
             <div class="formgroup-inline">
-                <div class="field-radiobutton ">
+                <div class="field-radiobutton">
                     <input type="radio" name="hcity" id="admin">
                     <label for="admin">Admin</label>
                 </div>

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { minusculoValidator } from './minusculo-validator';
 
 
 
@@ -24,7 +25,7 @@ export class NovoUsuarioComponent implements OnInit {
 			this.formGroup = this.formBuilder.group({
 
 				nome:['',[Validators.required]],
-				email:['',[Validators.required,Validators.email]],
+				email:['',[Validators.required,Validators.email, minusculoValidator]],
 				senha:['',[Validators.required,Validators.pattern(this.myPattern)]]
 			})
 
