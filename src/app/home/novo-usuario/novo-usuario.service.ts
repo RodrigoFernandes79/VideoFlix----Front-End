@@ -11,6 +11,6 @@ export class NovoUsuarioService {
   constructor(private http: HttpClient) { }
 
 	cadastrarNovoUsuario(novoUsuario: NovoUsuario){
-		this.http.post('http://localhost:8080/usuarios',novoUsuario)
+		return this.http.post('http://localhost:8080/usuarios',novoUsuario)
 	}
 }
