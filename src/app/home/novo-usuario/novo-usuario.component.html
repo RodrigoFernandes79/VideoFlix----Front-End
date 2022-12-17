@@ -36,16 +36,16 @@
             <h3>Tipo de Conta</h3>
             <div class="formgroup-inline">
                 <div class="field-radiobutton">
-                    <input type="radio" name="hcity" id="admin">
+                    <input type="radio" name="admin" formControlName="admin" value="true" id="admin">
                     <label for="admin">Admin</label>
                 </div>
                 <div class="field-radiobutton">
-                    <input type="radio" name="hcity" id="user">
+                    <input type="radio" name="admin" formControlName="admin" value="false" id="user">
                     <label for="user">User</label>
                 </div>
             </div>
         </div>
-        <div class="field">
+        <div class="field mt-3">
             <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
             <p-button type="submit" [disabled]="formGroup.invalid" class="block font-bold text-center border-round cursor-pointer bg-primary shadow-4" label="Cadastrar"></p-button>
         </div>

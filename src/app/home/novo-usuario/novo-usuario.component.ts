@@ -8,6 +8,7 @@ import {MessageService} from 'primeng-lts/api';
 
 
 
+
 @Component({
   selector: 'app-novo-usuario',
   templateUrl: './novo-usuario.component.html',
@@ -29,7 +30,8 @@ export class NovoUsuarioComponent implements OnInit {
 
 				nome:['',[Validators.required]],
 				email:['',[Validators.required,Validators.email, minusculoValidator]],
-				senha:['',[Validators.required,Validators.pattern(this.myPattern)]]
+				senha:['',[Validators.required,Validators.pattern(this.myPattern)]],
+				admin:['true',[Validators.required]]
 			})
 
 		 }

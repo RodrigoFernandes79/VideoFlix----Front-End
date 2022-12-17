@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng-lts/button';
+import { RadioButtonModule } from 'primeng-lts/radiobutton';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ButtonModule } from 'primeng-lts/button';
 		ButtonModule,
 		FormsModule,
 		ToastModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		RadioButtonModule
 
   ],
   providers:[],
