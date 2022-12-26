@@ -1,3 +1,5 @@
+import { TokenService } from './../../autenticacao/token.service';
+import { map } from 'rxjs/operators';
 import {MessageService} from 'primeng-lts/api';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,6 +16,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
 	formGroup:FormGroup
+
 
 
   constructor(private autencicacaoService: AutenticacaoService,

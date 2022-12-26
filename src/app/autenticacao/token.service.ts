@@ -9,18 +9,18 @@ const KEY ='token'
 export class TokenService {
 
  retornaToken(){
-	return localStorage.getItem(KEY)  ?? ''
+	return window.localStorage.getItem(KEY) 
  }
 
  salvaToken(token:string){
-  localStorage.setItem(KEY,token)
+			window.localStorage.setItem(KEY,token)
 }
 
 excluiToken(){
-	localStorage.removeItem(KEY)
+		window.localStorage.removeItem(KEY)
 }
 
 possuiToken(){
-	return !! this.retornaToken
+	return !! this.retornaToken()
 }
 }

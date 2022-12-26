@@ -1,0 +1,20 @@
+<header class="sticky-top mt-4 mb-4 h-auto">
+    <p-menubar>
+        <div class="flex">
+            <div class="flex flex-row">
+                <a class="mr-8">Video FLix</a>
+                <div *ngIf="user$ | async as user">
+                    <div *ngIf="user.nome; else login">
+                        <i class="pi pi-user mr-1"></i><a class="mr-8">Olá, {{ user.nome }}</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-menubar>
+</header>
+<ng-template #login>
+    <span class="navbar-text">
+<a  routerLink="">Login</a>
+</span>
+</ng-template>

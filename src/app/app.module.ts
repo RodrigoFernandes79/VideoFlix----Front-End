@@ -1,3 +1,4 @@
+import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +12,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng-lts/button';
 import { RadioButtonModule } from 'primeng-lts/radiobutton';
+import { MenubarModule } from 'primeng-lts/menubar';
+
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { RadioButtonModule } from 'primeng-lts/radiobutton';
 		FormsModule,
 		ToastModule,
 		ReactiveFormsModule,
-		RadioButtonModule
+		RadioButtonModule,
+		MenubarModule,
+		CabecalhoModule
 
   ],
   providers:[],
