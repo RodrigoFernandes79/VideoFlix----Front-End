@@ -1,13 +1,11 @@
-<header class="sticky-top mt-4 mb-4 h-auto">
+<header class="sticky-top mt-4 mb-4 h-auto shadow-2">
     <p-menubar>
-        <div class="flex">
-            <div class="flex flex-row">
-                <a class="mr-8">Video FLix</a>
-                <div *ngIf="user$ | async as user">
-                    <div *ngIf="user.nome; else login">
-                        <i class="pi pi-user mr-1"></i><a class="mr-8">Olá, {{ user.nome }}</a>
-                        <a (click)="logout()">Logout</a>
-                    </div>
+        <div class="flex flex-wrap">
+            <a class="pr-8">Video FLix</a>
+            <div *ngIf="user$ | async as user">
+                <div *ngIf="user.nome; else login">
+                    <i class="pi pi-user mr-1"></i><a class="mr-8">Olá, {{ user.nome }}!</a>
+                    <a (click)="logout()">Logout</a>
                 </div>
             </div>
         </div>
@@ -15,6 +13,6 @@
 </header>
 <ng-template #login>
     <span class="navbar-text">
-<a  routerLink="">Login</a>
+<a routerLink="">Login</a>
 </span>
 </ng-template>

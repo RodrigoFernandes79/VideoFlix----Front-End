@@ -6,15 +6,15 @@ import {MessagesModule} from 'primeng-lts/messages';
 import {MessageModule} from 'primeng-lts/message';
 import {ToastModule} from 'primeng-lts/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng-lts/button';
 import { RadioButtonModule } from 'primeng-lts/radiobutton';
 import { MenubarModule } from 'primeng-lts/menubar';
+import { RodapeModule } from './componentes/rodape/rodape.module';
 
-
+import { AppComponent } from './app.component';
+import { CardModule } from 'primeng-lts/card';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,9 @@ import { MenubarModule } from 'primeng-lts/menubar';
 		ReactiveFormsModule,
 		RadioButtonModule,
 		MenubarModule,
-		CabecalhoModule
+		CardModule,
+		CabecalhoModule,
+		RodapeModule
 
   ],
   providers:[],
