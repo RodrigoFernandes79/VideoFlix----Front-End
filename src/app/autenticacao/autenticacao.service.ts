@@ -1,9 +1,8 @@
-import { CredenciaisDTO } from './usuario/credenciais';
 import { UsuarioService } from './usuario/usuario.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, pipe } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -19,8 +18,14 @@ export class AutenticacaoService {
 
 	 headers = new HttpHeaders({
 	"Content-type":"application/json",
-	"Accept":"application/json"
-})
+	"Accept":"application/json",
+	'Access-Control-Allow-Headers':
+            'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+          'Content-Type': 'application/json; charset=UTF-8',
+        })
+
 
 	autenticar(usuario:string,senha:string):Observable<any> {
 		return this.httpClient.post('http://localhost:8080/usuarios/auth',{
@@ -28,10 +33,10 @@ export class AutenticacaoService {
 		senha:senha,
 	},
 {headers: this.headers}
-	).pipe(map(res => {
+	).pipe(tap(res => {
 		const token = res['token']
 		console.log(token)
-  this.usuarioService.salvaToken(token)
+ 	 this.usuarioService.salvaToken(token)
 
 }));
 	}

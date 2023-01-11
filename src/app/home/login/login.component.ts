@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
 
 	login(){
 	this.autencicacaoService.autenticar(this.formGroup.value.email,this.formGroup.value.senha)
-	.subscribe(()=>{
+	.subscribe((respo)=>{
+console.log(respo)
+
 		this.router.navigate(['videos'])
 },
 	(error)=>{

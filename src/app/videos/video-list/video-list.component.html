@@ -1,1 +1,11 @@
-<p>video-list works!</p>
+<p-card>
+    <div *ngFor="let video of videos">
+        <p-header>
+            <h1>{{video.titulo}}</h1>
+        </p-header>
+        Body Content
+        <p-footer>
+            Footer content here
+        </p-footer>
+    </div>
+</p-card>
