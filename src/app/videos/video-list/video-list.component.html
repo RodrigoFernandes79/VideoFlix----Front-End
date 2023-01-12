@@ -1,11 +1,20 @@
-<p-card>
-    <div *ngFor="let video of videos">
-        <p-header>
-            <h1>{{video.titulo}}</h1>
-        </p-header>
-        Body Content
-        <p-footer>
-            Footer content here
-        </p-footer>
+<div class="container shadow-2 mt-0" style="background-color: #e9e9e9">
+    <div class="grid m-2">
+        <div class="opacity-80 fadeinleft animation-duration-2000 col-12 md:col-6 lg:col-4 border-round" *ngFor="let video of videos">
+            <p-card>
+                <p-header>
+                    <div>
+                        <h3>{{ video.url }}</h3>
+                    </div>
+                </p-header>
+                <p-subheader>
+                    <a>{{ video.titulo }}</a>
+                </p-subheader>
+                <p-footer>
+                    <a class="ml-4"> {{ video.categoria }}</a>
+                </p-footer>
+
+            </p-card>
+        </div>
     </div>
-</p-card>
+</div>
