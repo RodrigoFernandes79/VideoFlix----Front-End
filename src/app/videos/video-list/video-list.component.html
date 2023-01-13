@@ -1,10 +1,10 @@
 <div class="container shadow-2 mt-0" style="background-color: #e9e9e9">
     <div class="grid m-2">
-        <div class="opacity-80 fadeinleft animation-duration-2000 col-12 md:col-6 lg:col-4 border-round" *ngFor="let video of videos">
+        <div class="opacity-80 fadeinleft animation-duration-1000 col-12 md:col-6 lg:col-4 border-round" *ngFor="let video of videos">
             <p-card>
                 <p-header>
-                    <div>
-                        <h3>{{ video.url }}</h3>
+                    <div style="align-items: center;justify-content: center;display:flex;">
+                        <iframe width="560" height="315" [src]="video.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </p-header>
                 <p-subheader>

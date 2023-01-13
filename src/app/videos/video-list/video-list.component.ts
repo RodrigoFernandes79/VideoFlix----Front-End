@@ -6,6 +6,7 @@ import { Video } from 'src/app/models/video';
 import { VideoFlixService } from 'src/app/services/video-flix.service';
 import { Categoria } from 'src/app/models/categoria';
 import { TokenService } from 'src/app/autenticacao/token.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-list',
@@ -15,7 +16,7 @@ import { TokenService } from 'src/app/autenticacao/token.service';
 export class VideoListComponent implements OnInit {
 
   constructor(private videoFlixService:VideoFlixService, private catService : CategoriaService,
-		private tokenService: TokenService) {}
+		private sanitizer: DomSanitizer) {}
 
 	videos:Video[]=[]
 categorias:Categoria[]=[]
@@ -33,6 +34,9 @@ this.listarCategorias()
 		this.videoFlixService.buscarVideos()
 		.subscribe((resposta) =>{
 			this.videos = resposta
+			this.videos.forEach(vid =>{
+				vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url)
+			})
 
 
 		},

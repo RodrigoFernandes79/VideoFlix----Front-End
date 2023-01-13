@@ -1,3 +1,4 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
 import { Categoria } from './categoria';
 export class Video {
 
@@ -6,5 +7,6 @@ export class Video {
 	descricao?:string;
 	url?:string;
 	categoria?:Categoria;
+	urlSafe:SafeResourceUrl;
 
 }
