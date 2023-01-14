@@ -1,1 +1,9 @@
-<app-videos [videos]="videos"></app-videos>
+<div class="text-center mt-3 mb-3 p-3">
+    <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText class="p-inputtext-sm w-30rem text-lg shadow-1  border-round-md hover:border-primary" placeholder="O que você deseja assistir?" (keyup)="filter = $event.target.value" />
+</span>
+</div>
+{{ filter }}
+<app-videos [videos]="videos">
+</app-videos>

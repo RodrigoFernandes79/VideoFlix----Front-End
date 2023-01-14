@@ -1,5 +1,6 @@
 import { Video } from './../../../models/video';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-videos',
@@ -8,14 +9,18 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class VideosComponent implements OnChanges {
 
-	@Input() videos:Video[] =[]
+	@Input() videos:Video[]
 	rows: any[]=[]
 
-  constructor() { }
+  constructor( ) { }
 	ngOnChanges(changes: SimpleChanges): void {
 		if(changes.videos) {
 			this.rows = this.grupoDeColunas(this.videos)
 		}
+	}
+
+	ngOnInit(): void {
+
 	}
 
 

@@ -15,7 +15,7 @@ import { RodapeModule } from './componentes/rodape/rodape.module';
 
 import { AppComponent } from './app.component';
 import { CardModule } from 'primeng-lts/card';
-
+import {InputTextModule} from 'primeng-lts/inputtext';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { CardModule } from 'primeng-lts/card';
 		CardModule,
 		CabecalhoModule,
 		RodapeModule,
+		InputTextModule
 
 
 

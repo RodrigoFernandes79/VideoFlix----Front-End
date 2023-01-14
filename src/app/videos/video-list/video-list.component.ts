@@ -1,12 +1,10 @@
 import { Video } from './../../models/video';
 import { CategoriaService } from './../../services/categoria.service';
 
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { VideoFlixService } from 'src/app/services/video-flix.service';
 import { Categoria } from 'src/app/models/categoria';
-import { TokenService } from 'src/app/autenticacao/token.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -21,11 +19,10 @@ export class VideoListComponent implements OnInit {
 
  videos:Video[]=[]
 categorias:Categoria[]=[]
-
+filter:string = ''
 
 ngAfterViewInit() {
 
-	this.listarCategorias()
 }
 
 	ngOnInit(): void {
