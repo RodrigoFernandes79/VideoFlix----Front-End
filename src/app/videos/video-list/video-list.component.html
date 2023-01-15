@@ -4,6 +4,5 @@
     <input type="text" pInputText class="p-inputtext-sm w-30rem text-lg shadow-1  border-round-md hover:border-primary" placeholder="O que você deseja assistir?" (keyup)="filter = $event.target.value" />
 </span>
 </div>
-{{ filter }}
-<app-videos [videos]="videos">
+<app-videos [videos]="videos | filtrarPorTitulo: filter">
 </app-videos>

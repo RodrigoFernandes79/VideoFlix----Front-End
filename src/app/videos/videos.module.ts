@@ -6,12 +6,13 @@ import { VideoListComponent } from './video-list/video-list.component';
 import {CardModule} from 'primeng-lts/card';
 import { VideosComponent } from './video-list/videos/videos.component';
 import {InputTextModule} from 'primeng-lts/inputtext';
+import { FiltrarPorTitulo } from './video-list/filtrar-por-titulo.pipe';
 
 
 
 
 @NgModule({
-  declarations: [VideoListComponent, VideosComponent],
+  declarations: [VideoListComponent, VideosComponent, FiltrarPorTitulo],
   imports: [
     CommonModule,
     VideosRoutingModule,
