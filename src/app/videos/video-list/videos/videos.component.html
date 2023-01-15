@@ -1,3 +1,6 @@
+<p class="text-5xl text-center opacity-70" *ngIf="!videos.length">
+    Desculpe... Não encontramos nenhum vídeo relacionado.
+</p>
 <div class="container shadow-2 mt-1 opacity-80" style="background-color: #f5fffb">
     <div *ngFor="let cols of rows" class="grid">
         <div *ngFor="let video of cols" class="col-12 md:col-6 lg:col-4  opacity-90 fadeinleft animation-duration-1000">
