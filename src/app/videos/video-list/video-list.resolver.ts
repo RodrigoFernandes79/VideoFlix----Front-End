@@ -16,7 +16,7 @@ export class VideoListResolver implements Resolve<Observable<Video[]>> {
 	Observable<Video[]> {
 
 
-	 return this.service.buscarVideos()
+	 return this.service.buscarVideosPaginado(1)
 
 
 	}
