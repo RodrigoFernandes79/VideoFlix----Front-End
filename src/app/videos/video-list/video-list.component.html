@@ -9,3 +9,5 @@
 </div>
 <app-videos [videos]="videos | filtrarPorTitulo: filter">
 </app-videos>
+
+<app-load-button (click)="load()" [exibirMais]="exibirMais"></app-load-button>

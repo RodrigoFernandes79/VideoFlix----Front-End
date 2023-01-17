@@ -7,6 +7,7 @@ import { debounceTime } from 'rxjs/operators';
 import { Video } from './../../models/video';
 import { CategoriaService } from './../../services/categoria.service';
 import { Categoria } from 'src/app/models/categoria';
+import { VideoFlixService } from 'src/app/services/video-flix.service';
 
 
 @Component({
@@ -16,21 +17,27 @@ import { Categoria } from 'src/app/models/categoria';
 })
 export class VideoListComponent implements OnInit, OnDestroy {
 
+
   constructor(private catService : CategoriaService,
-		private sanitizer: DomSanitizer, private activatedRoute: ActivatedRoute) {}
+		private sanitizer: DomSanitizer,
+		 private activatedRoute: ActivatedRoute,
+		 private videoFlixService: VideoFlixService) {}
 
 		videos:Video[]=[]
 		categorias:Categoria[]=[]
 		filter:string = ''
-debounce: Subject<string>= new Subject<string>()
+		debounce: Subject<string>= new Subject<string>()
+		exibirMais: boolean = true
+		atualizarPagina: number = 0
 
 
 
 ngOnInit(): void {
-
-	this.videos = this.activatedRoute.snapshot.data.videos['content']
+	this.videos = this.activatedRoute.snapshot.data.videos
 	this.videos.forEach(vid =>
 		vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url))
+
+
 
 		this.debounce
 		.pipe(debounceTime(400)) //Somente procura o filtro apos 400 milisegundos
@@ -42,6 +49,20 @@ ngOnInit(): void {
 	ngOnDestroy(): void {
 		this.debounce.unsubscribe() //encerrar o consumo do filtro do componente VideoListComponent
 	}
+
+	load() {
+		this.videoFlixService.buscarVideosPaginado(++this.atualizarPagina)
+		.subscribe(vid =>{
+		this.videos =	this.videos.concat(vid)
+		vid.forEach(res =>{
+			res.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(res.url)
+			})
+			if(!vid.length) {
+				this.exibirMais = false
+			}
+		})
+	}
+
 	//-> deixando de usar o método para iniciar a aplicação com o resolve diretamente no NgOnInit
 // 	listarVideos():void{
 // 		this.videoFlixService.buscarVideos()
