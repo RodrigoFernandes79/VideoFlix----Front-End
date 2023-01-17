@@ -1,5 +1,6 @@
 import { Observable  } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Video } from '../models/video';
 
@@ -22,15 +23,15 @@ export class VideoFlixService {
 				'Access-Control-Allow-Origin': '*',
 				'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
 				'Access-Control-Allow-Headers': 'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-			})
+			}),
+		 params : new HttpParams()
+			.set('page',page.toString())
 		};
-//-> Este passo vai vincular os parâmetros ao header, pois o metodo GET só recebe 2 parâmetros:
-const requestOptions = Object.assign({}, httpOptions);
-requestOptions['params'] = Object.assign({}, page.toString);
 
-		return this.http.get<Video[]>('http://localhost:8080/videos',requestOptions)
-
-}
+		return this.http.get<Video[]>('http://localhost:8080/videos',httpOptions)
+		.pipe(
+			map(res =>  res['content'])
+	)
 }
 
-
+		}

@@ -1,0 +1,7 @@
+<div class="flex align-items-center justify-content-center mt-4" *ngIf="exibirMais;else: messageButton">
+    <button pButton pRipple type="button" label="Exibir mais" class="p-button-raised shadow-2 text-center text-2xl"></button>
+</div>
+
+<ng-template #messageButton>
+    <p class="font-light text-2xl text-center opacity-70">Não existem mais vídeos a carregar...</p>
+</ng-template>
