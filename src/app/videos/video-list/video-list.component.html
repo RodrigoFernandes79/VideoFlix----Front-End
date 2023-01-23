@@ -7,7 +7,8 @@
 		(keyup)="debounce.next($event.target.value)" />
 </span>
 </div>
-<app-videos [videos]="videos | filtrarPorTitulo: filter">
-</app-videos>
+<app-carrossel-categorias [categorias]="categorias"></app-carrossel-categorias>
+
+<app-videos [videos]="videos | filtrarPorTitulo: filter"></app-videos>
 
 <app-load-button (click)="load()" [exibirMais]="exibirMais"></app-load-button>

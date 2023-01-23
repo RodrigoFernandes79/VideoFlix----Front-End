@@ -9,18 +9,21 @@ import {InputTextModule} from 'primeng-lts/inputtext';
 import { FiltrarPorTitulo } from './video-list/filtrar-por-titulo.pipe';
 import { LoadButtonComponent } from './video-list/load-button/load-button.component';
 import { ButtonModule } from 'primeng-lts/button';
-
+import {CarouselModule} from 'primeng-lts/carousel';
+import { VideoDetalheComponent } from './video-detalhe/video-detalhe.component';
+import { CarrosselCategoriasComponent } from './video-list/carrossel-categorias/carrossel-categorias.component';
 
 
 
 @NgModule({
-  declarations: [VideoListComponent, VideosComponent, FiltrarPorTitulo, LoadButtonComponent],
+  declarations: [VideoListComponent, VideosComponent, FiltrarPorTitulo, LoadButtonComponent, VideoDetalheComponent, CarrosselCategoriasComponent],
   imports: [
     CommonModule,
     VideosRoutingModule,
 		CardModule,
 		InputTextModule,
-		ButtonModule
+		ButtonModule,
+		CarouselModule,
 
 
 

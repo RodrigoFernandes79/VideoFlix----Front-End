@@ -23,6 +23,7 @@ export class VideoListComponent implements OnInit, OnDestroy {
 		 private activatedRoute: ActivatedRoute,
 		 private videoFlixService: VideoFlixService) {}
 
+
 		videos:Video[]=[]
 		categorias:Categoria[]=[]
 		filter:string = ''
@@ -30,20 +31,15 @@ export class VideoListComponent implements OnInit, OnDestroy {
 		exibirMais: boolean = true
 		atualizarPagina: number = 0
 
-
-
 ngOnInit(): void {
 	this.videos = this.activatedRoute.snapshot.data.videos
-	this.videos.forEach(vid =>
-		vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url))
-
-
-
+	this.videos.forEach(vid => {
+		vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url)})
 		this.debounce
 		.pipe(debounceTime(400)) //Somente procura o filtro apos 400 milisegundos
 		.subscribe(filter => this.filter = filter)
 
-
+this.listarCategorias()
 	}
 
 	ngOnDestroy(): void {
@@ -62,34 +58,16 @@ ngOnInit(): void {
 			}
 		})
 	}
-
-	//-> deixando de usar o método para iniciar a aplicação com o resolve diretamente no NgOnInit
-// 	listarVideos():void{
-// 		this.videoFlixService.buscarVideos()
-// 		.subscribe((resposta) =>{
-// 		this.videos = resposta['content']
-// 		this.videos.forEach(vid =>
-// 			vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url))
-// 			},
-// 		(error) =>{
-// console.log(error)
-// })
-// }
-
 	listarCategorias():void {
 		this.catService.listarCategorias()
 		.subscribe((resposta) =>{
 			this.categorias = resposta
-console.log(resposta)
-
-
-
 		},
 		(error) =>{
 console.log(error)
 		})
 	}
+
+
 }
-
-
 
