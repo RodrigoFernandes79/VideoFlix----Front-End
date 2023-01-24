@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
-import { UsuarioService } from './../../autenticacao/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from './../../autenticacao/usuario/usuario.service';
+
 
 @Component({
   selector: 'app-cabecalho',
@@ -15,6 +16,7 @@ export class CabecalhoComponent implements OnInit {
 
   ngOnInit(): void {
 console.log(this.usuarioService.retornaUsuario())
+
   }
 logout(){
 	this.usuarioService.logout()

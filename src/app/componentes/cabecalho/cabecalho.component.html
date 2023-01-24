@@ -1,6 +1,6 @@
-<header class="sticky-top mt-4  h-auto shadow-2">
+<div class="shadow-2">
     <p-menubar>
-        <div class="flex flex-row flex-wrap" style="font-size: 1.3rem;height: 30px;padding-right: 20px;">
+        <div class="flex" style="font-size: 1.3rem;height: 30px;padding-right: 20px;">
             <a class="pr-8">Video FLix</a>
             <div *ngIf="user$ | async as user">
                 <div *ngIf="user.nome; else login">
@@ -10,7 +10,7 @@
             </div>
         </div>
     </p-menubar>
-</header>
+</div>
 <ng-template #login>
     <span class="navbar-text">
 <a routerLink="">Login</a>
