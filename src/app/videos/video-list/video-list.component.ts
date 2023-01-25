@@ -39,7 +39,7 @@ ngOnInit(): void {
 		.pipe(debounceTime(400)) //Somente procura o filtro apos 400 milisegundos
 		.subscribe(filter => this.filter = filter)
 
-this.listarCategorias()
+  this.listarCategorias()
 	}
 
 	ngOnDestroy(): void {

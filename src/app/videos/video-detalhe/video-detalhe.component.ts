@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 import { Categoria } from './../../models/categoria';
 import { CategoriaService } from './../../services/categoria.service';
 import { Video } from 'src/app/models/video';
@@ -21,7 +22,7 @@ categorias:Categoria[]=[]
 
 	constructor(private categoriaService: CategoriaService,
 		 private activatedRoute:ActivatedRoute,
-		 private sanitizer: DomSanitizer, private router :Router ) { }
+		 private sanitizer: DomSanitizer, private router :Router) { }
 
   ngOnInit(): void {
 		this.id = this.activatedRoute.snapshot.params.id
@@ -30,6 +31,7 @@ categorias:Categoria[]=[]
 		this.listarCategorias()
 
   }
+
 
 
 	mostrarVideoPorIdCategoria(){
@@ -54,7 +56,8 @@ categorias:Categoria[]=[]
 console.log(error)
 		}
 	}
-
-
+retornar(){
+	this.router.navigate(['/videos'])
+}
 }
 

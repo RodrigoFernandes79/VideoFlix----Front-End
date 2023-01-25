@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VideoDetalheComponent } from './video-detalhe/video-detalhe.component';
 
+import { VideoDetalheComponent } from './video-detalhe/video-detalhe.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoListResolver } from './video-list/video-list.resolver';
 
@@ -11,12 +11,13 @@ const routes: Routes = [
 	 resolve:
 	 {
 			videos: VideoListResolver
-	 }
+	},
 		},
-		{
-		 path:'categorias/:id',
-		 component:VideoDetalheComponent
-		}
+	{
+		path:'categorias/:id',
+		component:VideoDetalheComponent
+		},
+
 ];
 
 @NgModule({

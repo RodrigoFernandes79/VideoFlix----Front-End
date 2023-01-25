@@ -1,7 +1,7 @@
 <app-carrossel-categorias [categorias]="categorias"></app-carrossel-categorias>
 
 <div class="container shadow-2 opacity-80" style="background-color: #f5fffb">
-    <h2 class="text-2xl p-2  text-center mt-2 opacity-70">{{categoria}}</h2>
+    <h2 class="font-light text-2xl p-2 text-center opacity-70">{{categoria}}</h2>
     <div class="grid p-1">
         <div *ngFor="let video of videos" class="col-12 md:col-6 lg:col-4 px-1 opacity-90  fadeinleft animation-duration-1000">
             <p-card>
@@ -19,4 +19,7 @@
             </p-card>
         </div>
     </div>
+</div>
+<div class="p-4">
+    <button pButton pRipple type="button" (click)="retornar()" styleClass="p-button" icon="pi pi-arrow-left" label="Retornar à Lista de vídeos" [routerLink]="['']" class="p-button-help"></button>
 </div>
