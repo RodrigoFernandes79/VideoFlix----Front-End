@@ -1,11 +1,19 @@
 <div class="shadow-2">
+
     <p-menubar>
-        <div class="flex" style="font-size: 1.3rem;height: 30px;padding-right: 20px;">
-            <a class="pr-8">Video FLix</a>
-            <div *ngIf="user$ | async as user">
+        <div class="flex flex-row flex-wrap align-items-start">
+
+            <a class="flex justify-content-center  pr-8">Video FLix</a>
+
+            <div *ngIf="user$ | async as user" class="flex justify-content-end text-align-center pr-6">
                 <div *ngIf="user.nome; else login">
                     <i class="pi pi-user mr-1"></i><a class="mr-8">Olá, {{ user.nome }}!</a>
                     <a (click)="logout()">Logout</a>
+                </div>
+            </div>
+            <div *ngIf="user$ | async as user" class="flex justify-content-center pr-3">
+                <div *ngIf="user.nome">
+                    <button pButton pRipple type="button" icon="pi pi-plus" label="Adicionar Vídeo" class="p-button-raised p-button-warning"></button>
                 </div>
             </div>
         </div>
