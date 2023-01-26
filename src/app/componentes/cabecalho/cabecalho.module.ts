@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { CabecalhoComponent } from './cabecalho.component';
 import {MenubarModule} from 'primeng-lts/menubar';
 import {ButtonModule} from 'primeng-lts/button';
-import {MenuItem} from 'primeng-lts/api';
+import {ConfirmDialogModule} from 'primeng-lts/confirmdialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessagesModule } from 'primeng-lts/messages';
 
 @NgModule({
   declarations: [CabecalhoComponent],
@@ -13,6 +15,8 @@ import {MenuItem} from 'primeng-lts/api';
 		RouterModule,
 		MenubarModule,
 		ButtonModule,
+		ConfirmDialogModule,
+		MessagesModule
 
   ],
 	exports:[CabecalhoComponent]

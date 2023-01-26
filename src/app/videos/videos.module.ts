@@ -13,11 +13,12 @@ import { FiltrarPorTitulo } from './video-list/filtrar-por-titulo.pipe';
 import { LoadButtonComponent } from './video-list/load-button/load-button.component';
 import { VideoDetalheComponent } from './video-detalhe/video-detalhe.component';
 import { CarrosselCategoriasComponent } from './video-list/carrossel-categorias/carrossel-categorias.component';
+import { NovoVideoComponent } from './novo-video/novo-video.component';
 
 
 
 @NgModule({
-  declarations: [VideoListComponent, VideosComponent, FiltrarPorTitulo, LoadButtonComponent, VideoDetalheComponent, CarrosselCategoriasComponent],
+  declarations: [VideoListComponent, VideosComponent, FiltrarPorTitulo, LoadButtonComponent, VideoDetalheComponent, CarrosselCategoriasComponent, NovoVideoComponent],
   imports: [
     CommonModule,
     VideosRoutingModule,
