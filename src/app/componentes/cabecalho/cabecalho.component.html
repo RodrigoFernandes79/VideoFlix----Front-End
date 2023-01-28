@@ -13,21 +13,17 @@
             </div>
             <div *ngIf="user$ | async as user" class="flex justify-content-center pr-3">
                 <div *ngIf="user.nome">
-                    <p-button (click)="adicionarVideo('top-right')" icon="pi pi-plus" label="NovoVídeo" styleClass="p-button-warning"></p-button>
 
+                    <app-novo-video [displayModal]="displayModal"></app-novo-video>
                 </div>
 
             </div>
         </div>
     </p-menubar>
-</div>
-<p-dialog header="Adicione um novo vídeo:" [(visible)]="displayPosition" [modal]="true" [position]="position" [style]="{minWidth: '50vw',minHeight: '10vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
-    <app-novo-video [displayModal]="displayModal"></app-novo-video>
-    <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="displayPosition=false" label="Salvar Novo Vídeo" styleClass="p-button-text"></p-button>
-    </ng-template>
 
-</p-dialog>
+</div>
+
+
 
 <ng-template #login>
     <span class="navbar-text">

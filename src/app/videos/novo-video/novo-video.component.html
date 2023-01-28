@@ -1,18 +1,29 @@
-<div class="card">
-    <form class="p-fluid">
+<p-button (click)="adicionarVideo('top-right')" icon="pi pi-plus" label="NovoVídeo" styleClass="p-button-warning"></p-button>
+<p-dialog icon="pi pi-video" header="Adicione um novo vídeo:" [(visible)]="displayPosition" [modal]="true" [position]="position" [style]="{minWidth: '50vw',minHeight: '10vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
 
-        <div class="p-field">
-            <label for="titulo">Título: </label>
-            <input id="titulo" formControlName="titulo" name="titulo" type="text" pInputText>
-        </div>
-        <div class="p-field">
-            <label for="descricao">Descrição: </label>
-            <input id="descricao" formControlName="descricao" name="descricao" type="text" pInputText>
-        </div>
-        <div class="p-field">
-            <label for="url">Link Completo do vídeo: </label>
-            <input id="url" formControlName="url" name="url" type="text" pInputText>
-        </div>
+    <div class="card">
 
-    </form>
-</div>
+        <i class="pi pi-video mb-2" style="font-size: 2rem"></i>
+        <form class="p-fluid example-form" [formGroup]="formGroup" (ngSubmit)="criarVideo()">
+            <div class="p-field">
+                <label for="titulo">Título: </label>
+                <input id="titulo" formControlName="titulo" name="titulo" type="text" pInputText>
+            </div>
+            <div class="p-field">
+                <label for="descricao">Descrição: </label>
+                <input id="descricao" formControlName="descricao" name="descricao" type="text" pInputText>
+            </div>
+            <div class="p-field">
+                <label for="url">Link Completo do Vídeo: </label>
+                <input id="url" formControlName="url" name="url" type="text" pInputText>
+            </div>
+
+
+
+        </form>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" [disabled]="formGroup.invalid" label="Salvar Novo Vídeo" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-times" (click)="displayPosition=false" label="Cancelar" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
