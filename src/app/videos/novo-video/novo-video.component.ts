@@ -1,7 +1,7 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component ,  Input,  OnInit } from '@angular/core';
 
-import { VideoFlixService } from 'src/app/services/video-flix.service';
-import { Component, OnInit } from '@angular/core';
-import { Video } from 'src/app/models/video';
+
 
 
 @Component({
@@ -11,21 +11,21 @@ import { Video } from 'src/app/models/video';
 })
 export class NovoVideoComponent implements OnInit {
 
-	video:Video = new Video()
+	@Input() displayModal: boolean =true
+formGroup:FormGroup
 
-  constructor(private videoService: VideoFlixService) { }
+  constructor( private formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {
+		this.formGroup = this.formBuilder.group({
+			titulo: ['',[Validators.required]],
+			descricao: ['',[Validators.required]],
+			url: ['',[Validators.required]],
+			categoria: ['',[Validators.required]],
+
+		})
 
   }
 
-	inserirVideo() {
-		this.videoService.inserirVideo(this.video)
-		.subscribe((resposta) => {
-this.video = new Video()
-console.log(this.video)
-console.log(resposta)
-		})
 
-	}
 }
