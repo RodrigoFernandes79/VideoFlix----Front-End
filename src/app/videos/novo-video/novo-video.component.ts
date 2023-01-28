@@ -3,6 +3,8 @@ import { Component ,  Input,  OnInit } from '@angular/core';
 
 import { VideoFlixService } from 'src/app/services/video-flix.service';
 import { Video } from 'src/app/models/video';
+import { Categoria } from 'src/app/models/categoria';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 
 
@@ -21,18 +23,24 @@ displayPosition: boolean;
 video:Video = new Video()
 myPattern= /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/
 
-  constructor( private formBuilder: FormBuilder, private videoFlixService :VideoFlixService ) {
+categorias:Categoria[]=[]
+categoriaSelecionada: Categoria
+
+  constructor( private formBuilder: FormBuilder,
+		 private videoFlixService :VideoFlixService,
+		 private categoriaService: CategoriaService ) {
 		this.formGroup = this.formBuilder.group({
 			titulo: ['',[Validators.required]],
 			descricao: ['',[Validators.required]],
 			url: ['',[Validators.required, Validators.pattern(this.myPattern)]],
-			categoria: [{id:1}],
+			categoria: [{id:this.categoriaSelecionada}],
 
 		})
 
 	}
 
   ngOnInit(): void {
+		this.listarCategoria()
 
 
 
@@ -55,5 +63,16 @@ myPattern= /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed
 			this.displayPosition = false;
 			this.formGroup.reset()
 
+		}
+
+		listarCategoria() {
+			this.categoriaService.listarCategorias()
+			.subscribe((resposta) =>{
+				this.categorias = resposta
+				console.log(this.categorias[1])
+				this.categoriaSelecionada = this.categorias[0]
+			}),(error) =>{
+				console.log(error)
+						}
 		}
 }

@@ -35,6 +35,13 @@
             <p class="danger" *ngIf="formGroup.controls.url.errors?.pattern">
                 Insira um Link Válido.
             </p>
+            <div class="p-field">
+                <h5>Selecione uma Categoria:</h5>
+                <div *ngFor="let categoria of categorias" class="p-field-checkbox p-1">
+                    <p-radioButton inpudIt="categoria.id" formControlName="categoria" name="categoria" [value]="categoria" [(ngModel)]="categoriaSelecionada"></p-radioButton>
+                    <label [for]="categoria.id" [ngStyle]="{color:categoria.cor}">{{categoria.titulo}}</label>
+                </div>
+            </div>
         </form>
 
     </div>
