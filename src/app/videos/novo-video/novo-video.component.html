@@ -7,23 +7,39 @@
         <form class="p-fluid example-form" [formGroup]="formGroup" (ngSubmit)="criarVideo()">
             <div class="p-field">
                 <label for="titulo">Título: </label>
-                <input id="titulo" formControlName="titulo" name="titulo" type="text" pInputText>
+                <input id="titulo" formControlName="titulo" name="titulo" minlength="5" maxlength="100" type="text" pInputText>
             </div>
+            <p class="danger" *ngIf="formGroup.controls.titulo.touched && formGroup.controls.titulo.errors?.required">
+                O Campo TÍTULO não pode ser vazio.
+            </p>
+            <p class="danger" *ngIf="formGroup.controls.titulo.errors?.minlength">
+                O Campo TÍTULO deve ter entre 5 e 100 caracteres.
+            </p>
             <div class="p-field">
                 <label for="descricao">Descrição: </label>
-                <input id="descricao" formControlName="descricao" name="descricao" type="text" pInputText>
+                <input id="descricao" formControlName="descricao" minlength="5" maxlengt="150" name="descricao" type="text" pInputText>
             </div>
+            <p class="danger" *ngIf="formGroup.controls.descricao.touched && formGroup.controls.descricao.errors?.required">
+                O Campo DESCRIÇÃO não pode ser vazio.
+            </p>
+            <p class="danger" *ngIf="formGroup.controls.descricao.errors?.minlength">
+                O Campo DESCRIÇÃO deve ter entre 5 e 150 caracteres
+            </p>
             <div class="p-field">
                 <label for="url">Link Completo do Vídeo: </label>
                 <input id="url" formControlName="url" name="url" type="text" pInputText>
             </div>
-
-
-
+            <p class="danger" *ngIf="formGroup.controls.url.touched && formGroup.controls.url.errors?.required">
+                O Campo LINK COMPLETO DO VÍDEO não pode ser vazio.
+            </p>
+            <p class="danger" *ngIf="formGroup.controls.url.errors?.pattern">
+                Insira um Link Válido.
+            </p>
         </form>
+
     </div>
     <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" [disabled]="formGroup.invalid" label="Salvar Novo Vídeo" styleClass="p-button-text"></p-button>
-        <p-button icon="pi pi-times" (click)="displayPosition=false" label="Cancelar" styleClass="p-button-text"></p-button>
+        <p-button type="submit" icon="pi pi-check" [disabled]="formGroup.invalid" (click)="criarVideo()" label="Salvar Novo Vídeo" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-times" (click)="cancelar()" label="Cancelar" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-dialog>
