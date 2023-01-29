@@ -1,7 +1,7 @@
 <div class="card px-6">
     <h2>Criar sua Conta do VídeoFlix</h2>
-    <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
-        <div class="field">
+    <form class="p-fluid" [formGroup]="formGroup" (ngSubmit)="cadastrar()">
+        <div class="p-field">
             <input id="nome" placeHolder="Nome" type="text" formControlName="nome" minlength="5" maxlength="20" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full shadow-2">
         </div>
         <p class="danger" *ngIf="formGroup.controls.nome.touched && formGroup.controls.nome.errors?.required">
@@ -10,7 +10,7 @@
         <p class="danger" *ngIf="formGroup.controls.nome.errors?.minlength">
             O campo NOME deve possuir entre 5 e 20 caracteres.
         </p>
-        <div class=" field mt-5">
+        <div class="p-field mt-5">
             <input id="email" placeHolder="Seu endereço de e-mail" type="text" formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary
             w-full shadow-2">
         </div>
@@ -23,7 +23,7 @@
         <p class="danger" *ngIf="formGroup.controls.email.errors?.minusculo">
             O campo E- MAIL deve ter letras minúsculas.
         </p>
-        <div class="field mt-5">
+        <div class="p-field mt-5">
             <input id="senha" placeHolder="Senha" type="text" formControlName="senha" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full shadow-2">
         </div>
         <p class="danger" *ngIf="formGroup.controls.senha.dirty && formGroup.controls.senha.errors?.required">
@@ -32,7 +32,7 @@
         <p class="danger" *ngIf="formGroup.controls.senha.errors?.pattern">
             Campo SENHA deve possuir pelo menos 8 caracteres,um dígito,uma letra maíscula, uma minúscula e um caractere especial.
         </p>
-        <div class="field mt-5">
+        <div class="p-field mt-5">
             <h3>Tipo de Conta</h3>
             <div class="formgroup-inline">
                 <div class="field-radiobutton">
@@ -45,9 +45,9 @@
                 </div>
             </div>
         </div>
-        <div class="field mt-3">
+        <div class="p-field mt-3">
             <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
-            <p-button type="submit" [disabled]="formGroup.invalid" class="block font-bold text-center border-round cursor-pointer bg-primary shadow-4" label="Cadastrar"></p-button>
+            <p-button type="submit" [disabled]="formGroup.invalid" class="font-bold text-center border-round cursor-pointer shadow-4" label="Cadastrar"></p-button>
         </div>
         <button pButton pRipple type="button" [routerLink]="['']" label="Faça login em vez disso" class="p-button-text"></button>
     </form>

@@ -7,6 +7,7 @@ import { Categoria } from 'src/app/models/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng-lts/api';
 
 
 
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-novo-video',
   templateUrl: './novo-video.component.html',
-  styleUrls: ['./novo-video.component.scss']
+  styleUrls: ['./novo-video.component.scss'],
+	providers: [MessageService]
 })
 export class NovoVideoComponent implements OnInit {
 
@@ -32,7 +34,8 @@ categoriaSelecionada: Categoria
 
   constructor( private formBuilder: FormBuilder,
 		 private videoFlixService :VideoFlixService,
-		 private categoriaService: CategoriaService ) {
+		 private categoriaService: CategoriaService,
+		 private messageService:MessageService) {
 		this.formGroup = this.formBuilder.group({
 			titulo: ['',[Validators.required]],
 			descricao: ['',[Validators.required]],
@@ -70,8 +73,9 @@ categoriaSelecionada: Categoria
 			this.formGroup.reset()
 			window.location.reload()
 		},
-		 (error) =>{
-			console.log(error)
+		 (errors) =>{
+			this.messageService.add({severity:'error', summary:'Erro!', detail:errors.error.message})
+			console.log(errors.error.message)
 	})
 }
 		cancelar() {

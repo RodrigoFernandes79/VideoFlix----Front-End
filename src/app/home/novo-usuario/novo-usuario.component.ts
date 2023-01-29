@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { minusculoValidator } from './minusculo-validator';
 import {Message} from 'primeng-lts//api';
 import {MessageService} from 'primeng-lts/api';
+import Swal from 'sweetalert2';
 
 
 
@@ -42,7 +43,13 @@ export class NovoUsuarioComponent implements OnInit {
 	cadastrar(){
 		this.novoUsuarioService.cadastrarNovoUsuario(this.formGroup.value)
 		.subscribe(()=>{
-
+			Swal.fire({
+				position: 'top-end',
+				icon: 'success',
+				title: 'Usuário Cadastrado com Sucesso!',
+				showConfirmButton: false,
+				timer: 1500
+			})
 				this.router.navigate([''])
 
 		},

@@ -1,10 +1,10 @@
 <p-button (click)="adicionarVideo('top-right')" icon="pi pi-plus" label="NovoVídeo" styleClass="p-button-warning"></p-button>
 <p-dialog icon="pi pi-video" header="Adicione um novo vídeo:" [(visible)]="displayPosition" [modal]="true" [position]="position" [style]="{minWidth: '50vw',minHeight: '10vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
 
-    <div class="card">
+    <div class="card col-12 md:col-6 lg:col-12">
 
         <i class="pi pi-video mb-2" style="font-size: 2rem"></i>
-        <form class="p-fluid example-form" [formGroup]="formGroup" (ngSubmit)="criarVideo()">
+        <form class="p-fluid" [formGroup]="formGroup" (ngSubmit)="criarVideo()">
             <div class="p-field">
                 <label for="titulo">Título: </label>
                 <input id="titulo" formControlName="titulo" name="titulo" minlength="5" maxlength="100" type="text" pInputText>
@@ -45,6 +45,7 @@
         </form>
 
     </div>
+    <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
     <ng-template pTemplate="footer">
         <p-button type="submit" icon="pi pi-check" [disabled]="formGroup.invalid" (click)="criarVideo()" label="Salvar Novo Vídeo" styleClass="p-button-text"></p-button>
         <p-button icon="pi pi-times" (click)="cancelar()" label="Cancelar" styleClass="p-button-text"></p-button>

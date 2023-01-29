@@ -1,21 +1,27 @@
 <div class="card px-6">
-    <form [formGroup]="formGroup" (ngSubmit)="login()">
+    <form class="p-fluid" [formGroup]="formGroup" (ngSubmit)="login()">
         <h3 class="text-center">Login</h3>
-        <div class="field">
+        <div class="p-field">
+            <span class="p-input-icon-right">
+						<i class="pi pi-id-card pr-2"></i>
             <input id="email" placeholder="E-mail" formControlName="email" type="text" class="shadow-3 text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+					</span>
         </div>
         <p class="danger" *ngIf="formGroup.controls.email.touched && formGroup.controls.email.errors">
             O Campo E-MAIL não pode ser vazio e deve ter preenchimento válido.
         </p>
-        <div class="field mt-5">
+        <div class="p-field mt-5">
+            <span class="p-input-icon-right">
+						<i class="pi pi-unlock pr-2"></i>
             <input id="senha" placeholder="Senha" formControlName="senha" type="password" class="shadow-3 text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+					</span>
         </div>
         <p class="danger" *ngIf="formGroup.controls.senha.dirty && formGroup.controls.senha.errors">
             O Campo SENHA não pode ser Vazio
         </p>
-        <div class="field mt-5">
+        <div class="p-field mt-5">
             <p-toast [showTransformOptions]="'translateX(100%)'" position="bottom-center"></p-toast>
-            <p-button type="submit" [disabled]="formGroup.invalid" class="block font-bold text-center border-round cursor-pointer bg-primary shadow-3" label="Login" icon="pi pi-check"></p-button>
+            <p-button type="submit" [disabled]="formGroup.invalid" class="font-bold text-center border-round cursor-pointer  shadow-3" label="Login" icon="pi pi-check"></p-button>
         </div>
         <button pButton pRipple type="button" [routerLink]="['/home/novousuario']" label="Não é um usuário? Cadastre-se" class="p-button-text"></button>
     </form>

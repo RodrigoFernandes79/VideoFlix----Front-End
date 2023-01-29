@@ -14,6 +14,7 @@ import { CabecalhoComponent } from './cabecalho.component';
 import { NovoVideoComponent } from 'src/app/videos/novo-video/novo-video.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastModule } from 'primeng-lts/toast';
 
 @NgModule({
   declarations: [CabecalhoComponent, NovoVideoComponent],
@@ -28,7 +29,8 @@ import { BrowserModule } from '@angular/platform-browser';
 		InputTextModule,
 		RadioButtonModule,
 		BrowserAnimationsModule,
-		BrowserModule
+		BrowserModule,
+		ToastModule,
 
   ],
 	exports:[CabecalhoComponent]
