@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -8,6 +8,7 @@ import { Video } from './../../models/video';
 import { CategoriaService } from './../../services/categoria.service';
 import { Categoria } from 'src/app/models/categoria';
 import { VideoFlixService } from 'src/app/services/video-flix.service';
+
 
 
 @Component({
@@ -31,10 +32,12 @@ export class VideoListComponent implements OnInit, OnDestroy {
 		exibirMais: boolean = true
 		atualizarPagina: number = 0
 
+
 ngOnInit(): void {
 	this.videos = this.activatedRoute.snapshot.data.videos
 	this.videos.forEach(vid => {
 		vid.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(vid.url)})
+
 		this.debounce
 		.pipe(debounceTime(400)) //Somente procura o filtro apos 400 milisegundos
 		.subscribe(filter => this.filter = filter)
@@ -68,6 +71,4 @@ console.log(error)
 		})
 	}
 
-
 }
-

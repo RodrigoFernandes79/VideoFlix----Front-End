@@ -12,6 +12,7 @@ import {InputTextModule} from 'primeng-lts/inputtext';
 import {MessagesModule} from 'primeng-lts/messages';
 import { MenubarModule } from 'primeng-lts/menubar';
 
+
 import { RodapeModule } from './componentes/rodape/rodape.module';
 import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 
@@ -37,6 +38,7 @@ import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 		CabecalhoModule,
 		RodapeModule,
 		InputTextModule,
+
 
 
 

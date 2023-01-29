@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -5,7 +6,6 @@ import {CardModule} from 'primeng-lts/card';
 import {InputTextModule} from 'primeng-lts/inputtext';
 import {CarouselModule} from 'primeng-lts/carousel';
 import { ButtonModule } from 'primeng-lts/button';
-
 
 import { VideosRoutingModule } from './videos-routing.module';
 import { VideoListComponent } from './video-list/video-list.component';
@@ -26,7 +26,8 @@ import { CarrosselCategoriasComponent } from './video-list/carrossel-categorias/
 		CardModule,
 		InputTextModule,
 		ButtonModule,
-		CarouselModule
+		CarouselModule,
+
 
 
 

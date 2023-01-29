@@ -68,6 +68,7 @@ categoriaSelecionada: Categoria
 
 			this.displayPosition = false;
 			this.formGroup.reset()
+			window.location.reload()
 		},
 		 (error) =>{
 			console.log(error)

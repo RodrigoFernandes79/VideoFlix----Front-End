@@ -3,11 +3,11 @@
 <div class="container shadow-2 opacity-80" style="background-color: #f5fffb">
     <h2 class="font-light text-2xl p-2 text-center opacity-70">{{categoria}}</h2>
     <div class="grid p-1">
-        <div *ngFor="let video of videos" class="col-12 md:col-6 lg:col-4 px-1 opacity-90  fadeinleft animation-duration-1000">
+        <div *ngFor="let video of videos" class="col-12 md:col-6 lg:col-4 px-1  fadeinleft animation-duration-1000">
             <p-card>
                 <p-header>
                     <div class="flex align-items-center justify-content-center">
-                        <iframe width="560" height="315" [src]="video.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="loading" width="560" height="315" [src]="video.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </p-header>
                 <p-subheader>
