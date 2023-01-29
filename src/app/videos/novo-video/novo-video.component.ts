@@ -5,6 +5,8 @@ import { VideoFlixService } from 'src/app/services/video-flix.service';
 import { Video } from 'src/app/models/video';
 import { Categoria } from 'src/app/models/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 
@@ -25,6 +27,8 @@ myPattern= /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed
 
 categorias:Categoria[]=[]
 categoriaSelecionada: Categoria
+
+
 
   constructor( private formBuilder: FormBuilder,
 		 private videoFlixService :VideoFlixService,
@@ -52,13 +56,23 @@ categoriaSelecionada: Categoria
 
 	criarVideo() {
 		this.videoFlixService.inserirVideo(this.formGroup.value)
-		.subscribe(resposta =>{
+		.subscribe((resposta) =>{
+			Swal.fire({
+				position: 'top-end',
+				icon: 'success',
+				title: 'Seu Vídeo Foi Adicionado!',
+				showConfirmButton: false,
+				timer: 1500
+			})
 			this.video = resposta
-			console.log(resposta)
+
 			this.displayPosition = false;
 			this.formGroup.reset()
-		})
-		}
+		},
+		 (error) =>{
+			console.log(error)
+	})
+}
 		cancelar() {
 			this.displayPosition = false;
 			this.formGroup.reset()
@@ -69,10 +83,12 @@ categoriaSelecionada: Categoria
 			this.categoriaService.listarCategorias()
 			.subscribe((resposta) =>{
 				this.categorias = resposta
-				console.log(this.categorias[1])
 				this.categoriaSelecionada = this.categorias[0]
-			}),(error) =>{
-				console.log(error)
+
+			},(error) =>{
+				console.log(error.message)
 						}
-		}
+		)}
 }
+
+
